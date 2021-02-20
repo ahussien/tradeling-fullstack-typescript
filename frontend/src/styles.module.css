@@ -1,0 +1,28 @@
+.container {
+    margin-top: 40px;
+    align-items: left;
+    text-align: left ;
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+    padding-bottom: 20px
+}
+.containercentred {
+    margin-top: 40px;
+    align-items: left;
+    text-align: center ;
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+    padding-bottom: 20px
+}
+
+.loadingText {
+    color: gray;
+    margin-left: 15px
+}
+
+.errorText {
+    color: red;
+    margin-left: 15px
+}
