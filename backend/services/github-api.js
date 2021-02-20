@@ -1,8 +1,6 @@
 const axios = require('axios');
 const logger = require('../services/logger');
-
-const usersUrl = 'https://api.github.com/search/users';
-const repositoriesUrl = 'https://api.github.com/search/repositories';
+const config = require('../config/index');
 
 /**
  * Serach Githup
@@ -31,7 +29,7 @@ exports.search = (searchType, searchText) => {
  * @return void
  */
 const fetchUsers = searchText => {
-  return featchData(usersUrl, searchText)
+  return featchData(`${config.githubSearchUrl}/users`, searchText)
 };
 
 /**
@@ -41,7 +39,7 @@ const fetchUsers = searchText => {
  * @return void
  */
 const fetchRepositories = searchText => {
-  return featchData(repositoriesUrl, searchText)
+  return featchData(`${config.githubSearchUrl}/repositories`, searchText)
 };
 
 /**
