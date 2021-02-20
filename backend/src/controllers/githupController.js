@@ -1,5 +1,4 @@
 const githubApi = require('../services/github-api');
-const redis = require('../services/redis');
 const logger = require('../services/logger');
 const cache = require('../services/cache');
 const config = require('../config/index');
