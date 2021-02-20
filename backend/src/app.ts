@@ -1,4 +1,4 @@
-const express = require('express');
+import  express from 'express';
 var logger = require('morgan');
 var cors = require('cors')
 var swaggerUi = require('swagger-ui-express');
@@ -14,4 +14,4 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api', apiRouter);
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-module.exports = app;
+export { app }

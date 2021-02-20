@@ -1,4 +1,5 @@
 'use strict';
+export {};
 const redis = require('redis');
 const { promisifyAll } = require('bluebird');
 const config = require('../config/index');
@@ -8,7 +9,7 @@ const client = redis.createClient(config.redisURL);
 
 promisifyAll(redis);
 
-client.on('error', error => logger.error(error));
+client.on('error', (error:any) => logger.error(error));
 
 client.on('connect', function () {
     logger.info('Redis database connection successful');

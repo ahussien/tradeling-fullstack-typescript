@@ -1,5 +1,5 @@
 'use strict';
-
+export {}
 const redisClient = require('../services/redis');
 const logger = require('../services/logger');
 
@@ -24,7 +24,7 @@ exports.clear = () => {
  * @param {Function} next
  * @return void
  */
-exports.has = async (key) => {
+exports.has = async (key:string) => {
   logger.debug(`cache:has ${key}`);
   const reply = await redisClient.existsAsync(key)
   
@@ -43,7 +43,7 @@ exports.has = async (key) => {
  * @param {Function} next
  * @return void
  */
-exports.set = (key, value, expirationInSeconds, { serialize = JSON.stringify } = {}) => {
+exports.set = (key:string, value:any, expirationInSeconds:number, { serialize = JSON.stringify } = {}) => {
   logger.debug(`cache:set ${key}`)
   if (value !== undefined) {
     return redisClient.setexAsync(key, expirationInSeconds, serialize(value));
@@ -58,7 +58,7 @@ exports.set = (key, value, expirationInSeconds, { serialize = JSON.stringify } =
  * @param {Function} next
  * @return void
  */
-exports.get = async (key, { unserialize = JSON.parse } = {}) => {
+exports.get = async (key:string, { unserialize = JSON.parse } = {}) => {
   logger.debug(`cache:get ${key}`)
   const value = await redisClient.getAsync(key);
   if (value) {

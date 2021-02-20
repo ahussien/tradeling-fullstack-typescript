@@ -1,3 +1,4 @@
+export {}
 const githubApi = require('../services/github-api');
 const logger = require('../services/logger');
 const cache = require('../services/cache');
@@ -11,7 +12,7 @@ const config = require('../config/index');
  * @param {Function} next
  * @return void
  */
-exports.search = async (req, res, next) => {
+exports.search = async (req:any, res:any, next:any) => {
   const { type, query } = req.body;
   const cachingKey = `${type}:${query}`;
 
@@ -57,7 +58,7 @@ exports.search = async (req, res, next) => {
 * @param {Function} next
 * @return void
 */
-exports.clearCache = async (req, res, next) => {
+exports.clearCache = async (req:any, res:any, next:any) => {
   try {
     logger.info(`Clear backend caching`);
 

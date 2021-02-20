@@ -1,3 +1,4 @@
+export {}
 const axios = require('axios');
 const logger = require('../services/logger');
 const config = require('../config/index');
@@ -9,7 +10,7 @@ const config = require('../config/index');
  * @param {String} searchText
  * @return void
  */
-exports.search = (searchType, searchText) => {
+exports.search = (searchType:string, searchText:string) => {
 
   logger.info('search requested!', { searchType: `${searchType}`, searchText: `${searchText}` });
 
@@ -28,7 +29,7 @@ exports.search = (searchType, searchText) => {
  * @param {String} searchText
  * @return void
  */
-const fetchUsers = searchText => {
+const fetchUsers = (searchText:string) => {
   return featchData(`${config.githubSearchUrl}/users`, searchText)
 };
 
@@ -38,7 +39,7 @@ const fetchUsers = searchText => {
  * @param {String} searchText
  * @return void
  */
-const fetchRepositories = searchText => {
+const fetchRepositories = (searchText:string) => {
   return featchData(`${config.githubSearchUrl}/repositories`, searchText)
 };
 
@@ -48,7 +49,7 @@ const fetchRepositories = searchText => {
  * @param {String} username
  * @return void
  */
-const featchData = (url, searchText) => {
+const featchData = (url:string, searchText:string) => {
   //To Do add any auth token
   return axios.get(`${url}?q=${searchText}`);
 };
