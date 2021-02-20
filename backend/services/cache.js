@@ -2,8 +2,9 @@
 
 const redisClient = require('../services/redis');
 const logger = require('../services/logger');
+
 /**
- * Get all users
+ * Clear the cache
  * 
  * @param {Object} req
  * @param {Object} res
@@ -16,7 +17,7 @@ exports.clear = () => {
 };
 
 /**
- * Get all users
+ * Check if the cahce has an item
  * 
  * @param {Object} req
  * @param {Object} res
@@ -35,7 +36,7 @@ exports.has = async (key) => {
 }
 
 /**
- * Get all users
+ * set item in the cache
  * 
  * @param {Object} req
  * @param {Object} res
@@ -50,7 +51,7 @@ exports.set = (key, value, expirationInSeconds, { serialize = JSON.stringify } =
 }
 
 /**
- * Get all users
+ * get item from the cache by key
  * 
  * @param {Object} req
  * @param {Object} res

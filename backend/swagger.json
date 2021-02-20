@@ -51,7 +51,10 @@
           "responses": {
             "200": {
               "description": "Search succeded with returned results"
-            }, 
+            },
+            "400": {
+              "description": "Invalid search text"
+            },  
             "500": {
               "description": "Something wrong in the server"
             }
