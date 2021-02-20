@@ -6,7 +6,7 @@ const githupController = require('../controllers/githupController')
 router.post('/search', githupController.search);
 
 /* GET users listing. */
-router.get('/clear-cache', githupController.clearCache);
+router.put('/clear-cache', githupController.clearCache);
 
 
 module.exports = router;
