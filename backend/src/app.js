@@ -1,4 +1,4 @@
-var express = require('express');
+const express = require('express');
 var logger = require('morgan');
 var cors = require('cors')
 var swaggerUi = require('swagger-ui-express');

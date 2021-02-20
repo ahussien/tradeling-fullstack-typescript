@@ -18,7 +18,9 @@ exports.search = async (req, res, next) => {
 
   if (!query || query.length === 0)
     res.status(400).json({ message: 'Fill out search text' })
-  else {
+  else if (!['users', 'repositories'].includes(type)) {
+    res.status(400).json({ message: `Invalid type: ${type}` })
+  } else {
     try {
       logger.info(`Try fetching the result from Redis:${cachingKey}`);
 
